@@ -1,5 +1,6 @@
 (function() {
   window.addEventListener( 'load', function() {
+		console.log("Master event listener load noted.")
 
 	// Don't emit events from inside of notes windows
 	if ( window.location.search.match( /receiver/gi ) ) { return; }

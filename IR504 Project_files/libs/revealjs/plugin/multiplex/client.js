@@ -1,5 +1,8 @@
 (function() {
 	window.addEventListener( 'load', function() {
+
+		console.log("Client event listener load noted.")
+
 	var multiplex = Reveal.getConfig().multiplex;
 	var socketId = multiplex.id;
 	var socket = io.connect(multiplex.url);
