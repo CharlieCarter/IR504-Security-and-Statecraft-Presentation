@@ -68,6 +68,7 @@
 			socketId: multiplex.id
 		};
         var e = event.content.type;
+				console.log("e (content type) on broadcast event: " + String(e))
         if (e==="startDrawing") {
             messageData.cmd = 'start';
             messageData.xx = event.content.x;
