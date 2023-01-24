@@ -81,13 +81,9 @@
 
 
         } else if (e==="startErasing") {
-            messageData.cmd = 'draw';
 						messageData.cmd = 'startErase';
             messageData.xx = event.content.x;
             messageData.yy = event.content.y;
-            return;
-
-
         }
 				// else if (e==="draw") {
 				// 	// Here, under 'draw', adding my own socket emit event
