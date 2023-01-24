@@ -1,4 +1,5 @@
 (function() {
+	window.addEventListener( 'load', function() {
 	var multiplex = Reveal.getConfig().multiplex;
 	var socketId = multiplex.id;
 	var socket = io.connect(multiplex.url);
@@ -23,7 +24,7 @@
         document.getElementById("pollbyes").disabled=true;
         document.getElementById("pollbno").disabled=true;
         handlepollres(isyes);
-		var messageData = { 
+		var messageData = {
             cmd: 'pollres', res: isyes
         }
         socket.emit( 'mplexpoll', messageData );
@@ -86,5 +87,6 @@
         } else if (data.cmd === 'pollclosed') {
             pollvisible(false);
         }
+	});
 	});
 }());
