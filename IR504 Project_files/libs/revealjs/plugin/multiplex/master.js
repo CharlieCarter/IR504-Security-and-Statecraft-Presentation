@@ -59,7 +59,7 @@
     });
 
     // ========================== for the chalkboard
-    document.addEventListener('send', event => {
+    document.addEventListener('broadcast', event => {
 		var messageData = {
             cmd: '', xx: 0, yy: 0, sto: null,
 			state: Reveal.getState(),

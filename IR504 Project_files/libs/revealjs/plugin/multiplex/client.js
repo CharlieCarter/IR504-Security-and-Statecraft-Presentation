@@ -53,11 +53,17 @@
         pollvisible(false);
 	});
 
-	const listener = (eventName, ...args) => {
-  	console.log(eventName, args);
-	}
+		const listener = (eventName, ...args) => {
+			console.log("Any event identified")
+	  	console.log(eventName, args);
+		}
 
-	socket.onAny(listener);
+		socket.onAny(listener);
+
+		document.addEventListener("broadcast", (event) => {
+			console.log("broadcast event identified. Must be coming from chalkboard?")
+			console.log("")
+		})
 
     socket.on(multiplex.id, function(data) {
 
