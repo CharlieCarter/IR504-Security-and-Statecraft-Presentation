@@ -87,6 +87,24 @@
 
         if (data['cmd'] === 'state') {
             Reveal.setState(data['state']);
+
+						// here adding my own code under cmd === 'draw' because
+						// others are no longer functional and xx + yy need to be
+						// fromX, fromY, toX, toY
+        } else if (data['cmd'] === 'draw') {
+					console.log("'draw' chalkboard event")
+            var message = new CustomEvent('received');
+            message.content = {
+							sender: 'chalkboard-plugin',
+							type: 'draw',
+							fromX: data['fromX'],
+							fromY: data['fromY'],
+							toX: data['toX'],
+							toY: data['toY'],
+							color: data['color']
+							erase: false
+						};
+            document.dispatchEvent( message );
         } else if (data['cmd'] === 'start') {
 					console.log("'start' chalkboard event")
             var message = new CustomEvent('received');
