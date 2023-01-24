@@ -53,16 +53,9 @@
         pollvisible(false);
 	});
 
-		const listener = (eventName, ...args) => {
-			console.log("Any event identified")
-	  	console.log(eventName, args);
-		}
-
-		socket.onAny(listener);
-
 		document.addEventListener("broadcast", (event) => {
 			console.log("broadcast event identified. Must be coming from chalkboard?")
-			console.log("")
+			console.log(event.content)
 		})
 
     socket.on(multiplex.id, function(data) {
@@ -76,14 +69,17 @@
         if (data.cmd === 'state') {
             Reveal.setState(data.state);
         } else if (data.cmd === 'start') {
+					console.log("'start' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'startDrawing', x: data.xx, y: data.yy, erase: false};
             document.dispatchEvent( message );
         } else if (data.cmd === 'segm') {
+					console.log("'segm' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'drawSegment', x: data.xx, y: data.yy, erase: false};
             document.dispatchEvent( message );
         } else if (data.cmd === 'init') {
+					console.log("'init' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'init', storage: data.sto};
             document.dispatchEvent( message );
@@ -93,10 +89,12 @@
                 mplexanim();
             }
         } else if (data.cmd === 'raz') {
+					console.log("'raz' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'resetSlide'};
             document.dispatchEvent( message );
         } else if (data.cmd === 'end') {
+					console.log("'end' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'stopDrawing', erase: false};
             document.dispatchEvent( message );
