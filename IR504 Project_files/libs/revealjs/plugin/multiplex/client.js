@@ -64,7 +64,7 @@
 			console.log("CMD" + String(data.cmd))
 			console.log( data.socketID )
 			console.log( String(window.location.host) )
-			console.log( data )
+			console.log( data[1] )
 
         // ignore data from sockets that aren't ours
         if (data.socketId !== socketId && typeof(data.socketId) != "undefined" ) { return; }
