@@ -1,4 +1,5 @@
 (function() {
+  window.addEventListener( 'load', function() {
 
 	// Don't emit events from inside of notes windows
 	if ( window.location.search.match( /receiver/gi ) ) { return; }
@@ -15,7 +16,7 @@
     // fct called when the master press T
     function initPoll() {
         // toggle poll on the clients
-	var messageData = { 
+	var messageData = {
 		cmd: 'pollactive',
 		secret: multiplex.secret,
 		socketId: multiplex.id
@@ -47,7 +48,7 @@
         document.getElementById("pollbyes").disabled=true;
         document.getElementById("pollbno").disabled=true;
         handlepollres(isyes);
-		var messageData = { 
+		var messageData = {
             cmd: 'pollres', res: isyes
         }
         socket.emit( 'mplexpoll', messageData );
@@ -112,5 +113,5 @@
 	Reveal.on( 'resumed', post );
 
     Reveal.addKeyBinding( { keyCode: 84, key: 'T', description: 'Poll' }, initPoll );
-
+});
 }());
