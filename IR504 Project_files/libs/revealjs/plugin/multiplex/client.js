@@ -57,7 +57,7 @@
     socket.on(multiplex.id, function(data) {
 
 			if(typeof(data.cmd) == 'undefined') {
-				data = data[1]
+				data = data[0]
 				console.log(String(Object.keys(data)))
 			}
 			console.log("Multiplex socket received other kind of data")
