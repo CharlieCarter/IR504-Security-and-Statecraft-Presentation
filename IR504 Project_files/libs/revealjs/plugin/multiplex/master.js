@@ -60,7 +60,7 @@
 
     // ========================== for the chalkboard
     document.addEventListener('broadcast', event => {
-			console.log("broadcast event")
+
 		var messageData = {
             cmd: '', xx: 0, yy: 0, sto: null,
 			state: Reveal.getState(),
@@ -88,6 +88,7 @@
         } else if (e==="stopDrawing") {
             messageData.cmd = 'end';
         }
+				console.log(messageData)
 		socket.emit( 'multiplex-statechanged', messageData );
     });
 

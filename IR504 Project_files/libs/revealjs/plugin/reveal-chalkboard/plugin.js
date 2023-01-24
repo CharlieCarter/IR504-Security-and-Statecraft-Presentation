@@ -283,8 +283,8 @@ const initChalkboard = function ( Reveal ) {
 
 	function whenReady( callback ) {
 		// wait for markdown to be parsed and code to be highlighted
-		if ( !document.querySelector( 'section[data-markdown]:not([data-markdown-parsed])' ) 
-		     && !document.querySelector( 'code[data-line-numbers*="|"]') 	
+		if ( !document.querySelector( 'section[data-markdown]:not([data-markdown-parsed])' )
+		     && !document.querySelector( 'code[data-line-numbers*="|"]')
 		) {
 			callback();
 		} else {
@@ -419,7 +419,7 @@ console.warn( "toggleNotesButton is deprecated, use customcontrols plugin instea
 			mode,
 			board
 		};
-		document.dispatchEvent( message );	
+		document.dispatchEvent( message );
 	}
 
 	function setupDrawingCanvas( id ) {
@@ -690,7 +690,7 @@ console.warn( "toggleNotesButton is deprecated, use customcontrols plugin instea
 				return data;
 			}
 		}
-		var page = Number( Reveal.getCurrentSlide().getAttribute('data-pdf-page-number') ); 
+		var page = Number( Reveal.getCurrentSlide().getAttribute('data-pdf-page-number') );
 //console.log( indices, Reveal.getCurrentSlide() );
 		storage[ id ].data.push( {
 			slide: indices,
@@ -741,7 +741,7 @@ console.warn( "toggleNotesButton is deprecated, use customcontrols plugin instea
 					count = Number(fragments[j].getAttribute('data-fragment-index')) + 1;
 				}
 			}
-//console.log(count,fragments.length,( slides[i].querySelector('h1,h2,h3,h4')||{}).innerHTML, page); 
+//console.log(count,fragments.length,( slides[i].querySelector('h1,h2,h3,h4')||{}).innerHTML, page);
 			page += count + 1;
 		}
 	}
@@ -935,7 +935,7 @@ console.warn( "toggleNotesButton is deprecated, use customcontrols plugin instea
 			}
 		}
 	}
- 
+
 	function eraseWithSponge( context, x, y ) {
 		context.save();
 		context.beginPath();
@@ -1503,6 +1503,7 @@ console.warn( "toggleNotesButton is deprecated, use customcontrols plugin instea
 						toY: ( mouseY - yOffset ) / scale,
 						color: color[ mode ]
 					};
+          console.log("draw event type:" + String(messageType))
 					document.dispatchEvent( message );
 
 					lastX = mouseX;
