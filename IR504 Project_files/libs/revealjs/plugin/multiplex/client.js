@@ -56,6 +56,9 @@
         if (data.socketId !== socketId) { return; }
         if( window.location.host === 'localhost:1947' ) return;
 
+				console.log("Multiplex socket received other kind of data")
+				console.log("CMD" + String(data.cmd))
+
         if (data.cmd === 'state') {
             Reveal.setState(data.state);
         } else if (data.cmd === 'start') {
