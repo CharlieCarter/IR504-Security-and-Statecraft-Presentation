@@ -59,7 +59,7 @@
     });
 
     // ========================== for the chalkboard
-    document.addEventListener('broadcast', event => {
+    document.addEventListener('send', event => {
 
 			console.log(event)
 
