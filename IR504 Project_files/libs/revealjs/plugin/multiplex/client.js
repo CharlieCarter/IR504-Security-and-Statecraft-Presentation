@@ -56,34 +56,13 @@
 
     socket.on(multiplex.id, function(data) {
 
-			window.dataObjectFromBroadcast = Object.assign({}, data)
-			console.log(typeof(data['cmd']) == 'undefined')
-			console.log(typeof(data['cmd']))
-			console.log(data)
 
-			// for(key in data) {
-			// 	console.log(key)
-			// 	console.log(data[key])
-			// }
-			// if(typeof(data.cmd) == 'undefined') {
-			// 	console.log("data.cmd undefined")
-			//
-			// 	console.log(data[0])
-			//
-			// 	// console.log("length of data: " + length(data))
-			// 	// data = data[0]
-			// 	console.log(Object.keys(data))
-			// }
-			// console.log("Multiplex socket received other kind of data")
-			// console.log("CMD" + String(data.cmd))
-			// console.log( data.socketID )
-			// console.log( String(window.location.host) )
-			// console.log( data.cmd )
+			// console.log(data)
 
         // ignore data from sockets that aren't ours
-        if (data['socketId'] !== socketId && typeof(data['socketId']) != "undefined" ) { return; }
-        if( window.location.host === 'localhost:1947' ) return;
-				if( window.location.host !== 'charliecarter.github.io' ) return;
+        // if (data['socketId'] !== socketId && typeof(data['socketId']) != "undefined" ) { return; }
+        // if( window.location.host === 'localhost:1947' ) return;
+				// if( window.location.host !== 'charliecarter.github.io' ) return;
 
         if (data['cmd'] === 'state') {
             Reveal.setState(data['state']);
@@ -120,7 +99,7 @@
         } else if (data['cmd'] === 'segm') {
 					console.log("'segm' chalkboard event")
             var message = new CustomEvent('received');
-            message.content = { sender: 'chalkboard-plugin', type: 'drawSegment', x: data['xx'], y: data['yy'], erase: false};
+            message.content = { sender: 'chalkboard-plugin', type: 'drawSegment', x: data['xx'], y: data['yy'], erase: data['erase']};
             document.dispatchEvent( message );
         } else if (data['cmd'] === 'init') {
 					console.log("'init' chalkboard event")

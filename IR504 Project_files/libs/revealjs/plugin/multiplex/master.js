@@ -64,7 +64,7 @@
 			console.log(event)
 
 		var messageData = {
-            cmd: '', xx: 0, yy: 0,
+            cmd: '', xx: 0, yy: 0, erase: false,
 						// fromX: 0, fromY: 0, toX: 0, toY: 0,
 						color: 0,
 						sto: null,
@@ -106,6 +106,7 @@
             messageData.cmd = 'segm';
             messageData.xx = event.content.x;
             messageData.yy = event.content.y;
+						messageData.erase = event.content.erase;
         } else if (e==="resetSlide") {
             messageData.cmd = 'raz';
         } else if (e==="animate") {
