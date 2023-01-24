@@ -62,11 +62,11 @@
 
 			console.log("Multiplex socket received other kind of data")
 			console.log("CMD" + String(data.cmd))
-			console.log( String(data.socketID ))
+			console.log( data.socketID )
 			console.log( String(window.location.host) )
 
         // ignore data from sockets that aren't ours
-        if (data.socketId !== socketId) { return; }
+        if (data.socketId !== socketId ) { return; }
         if( window.location.host === 'localhost:1947' ) return;
 
         if (data.cmd === 'state') {
