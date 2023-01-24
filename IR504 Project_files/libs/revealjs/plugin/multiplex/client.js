@@ -56,6 +56,9 @@
 
     socket.on(multiplex.id, function(data) {
 
+			window.dataObjectFromBroadcast = Object.assign({}, data)
+			console.log(typeof(data.cmd) == 'undefined')
+			console.log(typeof(data.cmd))
 			if(typeof(data.cmd) == 'undefined') {
 				console.log("data.cmd undefined")
 				console.log(data)
