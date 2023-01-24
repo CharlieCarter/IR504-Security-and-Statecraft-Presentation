@@ -53,18 +53,18 @@
         pollvisible(false);
 	});
 
-		document.addEventListener("broadcast", (event) => {
-			console.log("broadcast event identified. Must be coming from chalkboard?")
-			console.log(event.content)
-		})
 
     socket.on(multiplex.id, function(data) {
 
+			if(typeof(data.cmd) == 'undefined') {
+				data = data[1]
+				console.log(String(Object.keys(data)))
+			}
 			console.log("Multiplex socket received other kind of data")
 			console.log("CMD" + String(data.cmd))
 			console.log( data.socketID )
 			console.log( String(window.location.host) )
-			console.log( data[1] )
+			console.log( data.cmd )
 
         // ignore data from sockets that aren't ours
         if (data.socketId !== socketId && typeof(data.socketId) != "undefined" ) { return; }
