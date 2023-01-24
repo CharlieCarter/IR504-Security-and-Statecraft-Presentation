@@ -45,19 +45,21 @@
             document.getElementById("pollbno").disabled=false;
     }
     socket.on('pollactive', data => {
+			console.log("poll active")
         pollvisible(true);
 	});
     socket.on('pollclosed', data => {
+			console.log("poll closed")
         pollvisible(false);
 	});
 
     socket.on(multiplex.id, function(data) {
+
+			console.log("Multiplex socket received other kind of data")
+			console.log("CMD" + String(data.cmd))
         // ignore data from sockets that aren't ours
         if (data.socketId !== socketId) { return; }
         if( window.location.host === 'localhost:1947' ) return;
-
-				console.log("Multiplex socket received other kind of data")
-				console.log("CMD" + String(data.cmd))
 
         if (data.cmd === 'state') {
             Reveal.setState(data.state);
