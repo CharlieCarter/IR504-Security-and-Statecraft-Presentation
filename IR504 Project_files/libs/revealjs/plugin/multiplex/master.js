@@ -61,6 +61,8 @@
     // ========================== for the chalkboard
     document.addEventListener('broadcast', event => {
 
+			console.log(event)
+
 		var messageData = {
             cmd: '', xx: 0, yy: 0, sto: null,
 			state: Reveal.getState(),
