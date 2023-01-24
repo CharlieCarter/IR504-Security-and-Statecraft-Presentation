@@ -64,10 +64,12 @@
 			console.log("CMD" + String(data.cmd))
 			console.log( data.socketID )
 			console.log( String(window.location.host) )
+			console.log( data )
 
         // ignore data from sockets that aren't ours
-        if (data.socketId !== socketId ) { return; }
+        if (data.socketId !== socketId && typeof(data.socketId) != "undefined" ) { return; }
         if( window.location.host === 'localhost:1947' ) return;
+				if( window.location.host !== 'charliecarter.github.io' ) return;
 
         if (data.cmd === 'state') {
             Reveal.setState(data.state);
