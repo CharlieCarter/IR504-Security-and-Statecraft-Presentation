@@ -65,7 +65,7 @@
 
 		var messageData = {
             cmd: '', xx: 0, yy: 0,
-						fromX: 0, fromY: 0, toX: 0, toY: 0,
+						// fromX: 0, fromY: 0, toX: 0, toY: 0,
 						color: 0,
 						sto: null,
 			state: Reveal.getState(),
@@ -79,18 +79,29 @@
             messageData.xx = event.content.x;
             messageData.yy = event.content.y;
 
-						// Here, under 'draw', adding my own socket emit event
-						// because others no longer appear to be functional
-        } else if (e==="draw") {
+
+        } else if (e==="startErasing") {
             messageData.cmd = 'draw';
-						messageData.fromX = event.content.fromX;
-						messageData.fromY = event.content.fromY;
-						messageData.toX = event.content.toX;
-						messageData.toY = event.content.toY;
-						messageData.color = event.content.color;
-            socket.emit( 'multiplex-statechanged', messageData );
+						messageData.cmd = 'startErase';
+            messageData.xx = event.content.x;
+            messageData.yy = event.content.y;
             return;
-        } else if (e==="init") {
+
+
+        }
+				// else if (e==="draw") {
+				// 	// Here, under 'draw', adding my own socket emit event
+				// 	// because others no longer appear to be functional
+        //     messageData.cmd = 'draw';
+				// 		messageData.fromX = event.content.fromX;
+				// 		messageData.fromY = event.content.fromY;
+				// 		messageData.toX = event.content.toX;
+				// 		messageData.toY = event.content.toY;
+				// 		messageData.color = event.content.color;
+        //     socket.emit( 'multiplex-statechanged', messageData );
+        //     return;
+        // }
+				else if (e==="init") {
             messageData.cmd = 'init';
             messageData.sto = event.content.storage;
             socket.emit( 'multiplex-statechanged', messageData );

@@ -112,6 +112,11 @@
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'startDrawing', x: data['xx'], y: data['yy'], erase: false};
             document.dispatchEvent( message );
+        } else if (data['cmd'] === 'startErase') {
+					console.log("'startErase' chalkboard event")
+            var message = new CustomEvent('received');
+            message.content = { sender: 'chalkboard-plugin', type: 'startErasing', x: data['xx'], y: data['yy'], erase: true};
+            document.dispatchEvent( message );
         } else if (data['cmd'] === 'segm') {
 					console.log("'segm' chalkboard event")
             var message = new CustomEvent('received');
