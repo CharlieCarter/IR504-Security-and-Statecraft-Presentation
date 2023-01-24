@@ -101,7 +101,7 @@
 							fromY: data['fromY'],
 							toX: data['toX'],
 							toY: data['toY'],
-							color: data['color']
+							color: data['color'],
 							erase: false
 						};
             document.dispatchEvent( message );
