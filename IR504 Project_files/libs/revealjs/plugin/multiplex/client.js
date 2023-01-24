@@ -57,8 +57,16 @@
     socket.on(multiplex.id, function(data) {
 
 			if(typeof(data.cmd) == 'undefined') {
-				data = data[0]
-				console.log(String(Object.keys(data)))
+				console.log("data.cmd undefined")
+				console.log(data)
+				console.log(data[0])
+				for(key in data) {
+					console.log(key)
+					console.log("key:"+String(key))
+				}
+				// console.log("length of data: " + length(data))
+				// data = data[0]
+				console.log(Object.keys(data))
 			}
 			console.log("Multiplex socket received other kind of data")
 			console.log("CMD" + String(data.cmd))
