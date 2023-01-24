@@ -53,6 +53,12 @@
         pollvisible(false);
 	});
 
+	const listener = (eventName, ...args) => {
+  	console.log(eventName, args);
+	}
+
+	socket.onAny(listener);
+
     socket.on(multiplex.id, function(data) {
 
 			console.log("Multiplex socket received other kind of data")
