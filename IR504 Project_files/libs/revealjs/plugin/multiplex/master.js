@@ -1,6 +1,5 @@
 (function() {
-  window.addEventListener( 'load', function() {
-		console.log("Master event listener load noted.")
+	console.log("master.js function running.")
 
 	// Don't emit events from inside of notes windows
 	if ( window.location.search.match( /receiver/gi ) ) { return; }
@@ -114,5 +113,5 @@
 	Reveal.on( 'resumed', post );
 
     Reveal.addKeyBinding( { keyCode: 84, key: 'T', description: 'Poll' }, initPoll );
-});
+
 }());

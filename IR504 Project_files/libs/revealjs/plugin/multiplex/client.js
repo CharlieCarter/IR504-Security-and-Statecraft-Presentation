@@ -1,7 +1,5 @@
 (function() {
-	window.addEventListener( 'load', function() {
-
-		console.log("Client event listener load noted.")
+	console.log("client.js function running.")
 
 	var multiplex = Reveal.getConfig().multiplex;
 	var socketId = multiplex.id;
@@ -90,6 +88,5 @@
         } else if (data.cmd === 'pollclosed') {
             pollvisible(false);
         }
-	});
 	});
 }());
