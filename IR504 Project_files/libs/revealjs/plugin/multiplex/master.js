@@ -61,7 +61,7 @@
     // ========================== for the chalkboard
     document.addEventListener('send', event => {
 
-			console.log(event)
+			// console.log(event)
 
 		var messageData = {
             cmd: '', xx: 0, yy: 0, erase: false,
@@ -73,7 +73,7 @@
 			socketId: multiplex.id
 		};
         var e = event.content.type;
-				console.log("e (content type) on broadcast event: " + String(e))
+				// console.log("e (content type) on broadcast event: " + String(e))
         if (e==="startDrawing") {
             messageData.cmd = 'start';
             messageData.xx = event.content.x;
@@ -114,7 +114,7 @@
         } else if (e==="stopDrawing") {
             messageData.cmd = 'end';
         }
-				console.log(messageData)
+				// console.log(messageData)
 		socket.emit( 'multiplex-statechanged', messageData );
     });
 

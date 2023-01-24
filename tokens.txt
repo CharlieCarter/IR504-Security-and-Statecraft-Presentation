@@ -1,0 +1,7 @@
+Earlier token:
+{"secret":"16745616400795986733","id":"5acf19f5fcb784da","url":"https://reveal-multiplex.glitch.me/"}
+
+
+New token on droplet server http://139.59.197.253:1948:
+	{"secret":"16745883444796952376","socketId":"a460767b04224957"}
+	

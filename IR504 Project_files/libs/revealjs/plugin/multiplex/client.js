@@ -87,22 +87,22 @@
         //     document.dispatchEvent( message );
         // }
 				else if (data['cmd'] === 'start') {
-					console.log("'start' chalkboard event")
+					// console.log("'start' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'startDrawing', x: data['xx'], y: data['yy'], erase: false};
             document.dispatchEvent( message );
         } else if (data['cmd'] === 'startErase') {
-					console.log("'startErase' chalkboard event")
+					// console.log("'startErase' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'startErasing', x: data['xx'], y: data['yy'], erase: true};
             document.dispatchEvent( message );
         } else if (data['cmd'] === 'segm') {
-					console.log("'segm' chalkboard event")
+					// console.log("'segm' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'drawSegment', x: data['xx'], y: data['yy'], erase: data['erase']};
             document.dispatchEvent( message );
         } else if (data['cmd'] === 'init') {
-					console.log("'init' chalkboard event")
+					// console.log("'init' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'init', storage: data.sto};
             document.dispatchEvent( message );
@@ -117,7 +117,7 @@
             message.content = { sender: 'chalkboard-plugin', type: 'resetSlide'};
             document.dispatchEvent( message );
         } else if (data['cmd'] === 'end') {
-					console.log("'end' chalkboard event")
+					// console.log("'end' chalkboard event")
             var message = new CustomEvent('received');
             message.content = { sender: 'chalkboard-plugin', type: 'stopDrawing', erase: false};
             document.dispatchEvent( message );
