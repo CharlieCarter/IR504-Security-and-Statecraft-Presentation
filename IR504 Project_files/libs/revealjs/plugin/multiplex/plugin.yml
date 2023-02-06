@@ -3,6 +3,6 @@ script: [socket.io.js, multiplex.js]
 register: false
 config:
   multiplex:
-    secret: "16745616400795986733"
-    id: "5acf19f5fcb784da"
-    url: "https://reveal-multiplex.glitch.me/"
+    secret: "16756920581953365098"
+    id: "7de7ecbda932226d"
+    url: "https://multiplex.ir205lse.click"
